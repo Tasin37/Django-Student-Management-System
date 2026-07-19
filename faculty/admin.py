@@ -27,3 +27,14 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ['department']
 
 
+@admin.register(DepartmentHead)
+class DepartmentHeadAdmin(admin.ModelAdmin):
+    list_display = ['department', 'teacher']
+    search_fields = ['department__name','teacher__name']
+    ordering = ['department__name']
+
+@admin.register(Result)
+class ResultAdmin(admin.ModelAdmin):
+    list_display = ['student', 'subject_code','marks']
+    search_fields = ['student__name','subject_code']
+    ordering = ['student__name']
